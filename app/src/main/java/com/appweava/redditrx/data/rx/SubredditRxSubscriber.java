@@ -3,6 +3,9 @@ package com.appweava.redditrx.data.rx;
 import com.appweava.redditrx.Subreddit;
 import com.appweava.redditrx.data.entities.Children;
 import com.appweava.redditrx.data.entities.SubredditResult;
+import com.appweava.redditrx.domain.Converter;
+import com.appweava.redditrx.domain.SubredditConverter;
+import com.appweava.redditrx.domain.entities.SubredditDomain;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,9 +13,9 @@ import java.util.List;
 /**
  * Created by weava on 3/22/16.
  */
-public class SubredditRxSubscriber extends ConverterRxSubscriber<SubredditResult, List<Subreddit>> {
+public class SubredditRxSubscriber extends ConverterRxSubscriber<SubredditResult, List<SubredditDomain>> {
 
-    public SubredditRxSubscriber(RxCallback<List<Subreddit>> callback) {
+    public SubredditRxSubscriber(RxCallback<List<SubredditDomain>> callback) {
         super(callback);
     }
 
@@ -34,6 +37,8 @@ public class SubredditRxSubscriber extends ConverterRxSubscriber<SubredditResult
             subredditList.add(child.getSubreddit());
         }
 
-        mCallback.onDataReady(subredditList);
+        Converter subredditConverter = new SubredditConverter();
+
+        mCallback.onDataReady(subredditConverter.convert(subredditList));
     }
 }

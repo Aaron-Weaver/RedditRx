@@ -1,11 +1,40 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/windowBackground</item>
+    </style>
+
+    <style name="card_image_foreground_text">
+        <item name="android:background">@color/transparentTextBack</item>
+        <item name="android:textSize">@dimen/card_primary_text</item>
+        <item name="android:textColor">@color/whiteText</item>
+        <item name="android:paddingLeft">@dimen/material_padding_md</item>
+        <item name="android:paddingRight">@dimen/material_padding_md</item>
+        <item name="android:paddingTop">@dimen/material_padding_sm</item>
+        <item name="android:paddingBottom">@dimen/material_padding_sm</item>
+    </style>
+
+    <style name="card_text_primary">
+        <item name="android:textSize">@dimen/card_primary_text</item>
+        <item name="android:textColor">@color/colorPrimaryText</item>
+        <item name="android:paddingLeft">@dimen/material_padding_md</item>
+        <item name="android:paddingRight">@dimen/material_padding_md</item>
+        <item name="android:paddingTop">@dimen/material_padding_sm</item>
+        <item name="android:paddingBottom">@dimen/material_padding_sm</item>
+    </style>
+
+    <style name="card_text_secondary">
+        <item name="android:textSize">@dimen/card_secondary_text</item>
+        <item name="android:textColor">@color/colorSecondaryText</item>
+        <item name="android:paddingLeft">@dimen/material_padding_md</item>
+        <item name="android:paddingRight">@dimen/material_padding_md</item>
+        <item name="android:paddingTop">@dimen/material_padding_sm</item>
+        <item name="android:paddingBottom">@dimen/material_padding_sm</item>
     </style>
 
 </resources>
