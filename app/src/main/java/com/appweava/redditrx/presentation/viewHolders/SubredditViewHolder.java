@@ -3,23 +3,20 @@ package com.appweava.redditrx.presentation.viewHolders;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.appweava.redditrx.R;
-import com.appweava.redditrx.domain.entities.SubredditDomain;
-import com.squareup.picasso.Picasso;
+import com.appweava.redditrx.domain.entities.SubredditModel;
+import com.appweava.redditrx.presentation.ItemCallback;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by weava on 4/7/16.
  */
-public class SubredditViewHolder extends BaseViewHolder<SubredditDomain> {
-
-    @Bind(R.id.subreddit_banner_image)
-    protected ImageView mBannerImageView;
+public class SubredditViewHolder extends BaseViewHolder<SubredditModel> {
 
     @Bind(R.id.subreddit_name)
     protected TextView mNameTextView;
@@ -28,28 +25,23 @@ public class SubredditViewHolder extends BaseViewHolder<SubredditDomain> {
     protected TextView mDescriptionTextView;
 
     private Context mContext;
+    private ItemCallback<SubredditModel> mCallback;
+    private SubredditModel mViewModel;
 
-    public SubredditViewHolder(View itemView, Context context) {
+    public SubredditViewHolder(View itemView, Context context, ItemCallback<SubredditModel> callback) {
         super(itemView);
         ButterKnife.bind(this, itemView);
         this.mContext = context;
+        this.mCallback = callback;
     }
 
     @Override
-    public void bind(@NonNull SubredditDomain bindObject) {
+    public void bind(@NonNull SubredditModel bindObject) {
 
-        if(bindObject.getHeaderImage() != null) {
-            if (!bindObject.getHeaderImage().isEmpty()) {
-                Picasso.with(mContext)
-                        .load(bindObject.getHeaderImage())
-                        .placeholder(R.drawable.back_reddit_placeholder)
-                        .fit()
-                        .into(mBannerImageView);
-            }
-        }
+        mViewModel = bindObject;
 
         if(bindObject.getDisplayName() != null) {
-            mNameTextView.setText("r/" + bindObject.getDisplayName());
+            mNameTextView.setText(String.format("/r/%s", bindObject.getDisplayName()));
         } else {
             mNameTextView.setText("");
         }
@@ -59,5 +51,10 @@ public class SubredditViewHolder extends BaseViewHolder<SubredditDomain> {
         } else {
             mDescriptionTextView.setText("");
         }
+    }
+
+    @OnClick(R.id.subreddit_card)
+    public void onClick(View v) {
+        mCallback.onClick(mViewModel);
     }
 }

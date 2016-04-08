@@ -2,6 +2,7 @@
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/subreddit_card"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="80dp"
@@ -15,24 +16,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/subreddit_banner_image"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/material_padding_md"
-            android:scaleType="centerCrop"
-            android:src="@drawable/back_reddit_placeholder"/>
-
         <TextView
             android:id="@+id/subreddit_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/subreddit_banner_image"
-            android:layout_toRightOf="@+id/subreddit_banner_image"
             style="@style/card_text_primary"
             android:textStyle="bold"
-            android:paddingTop="0dp"
+            android:paddingTop="@dimen/material_padding_md"
             android:lines="1"
             android:ellipsize="end"
             android:text="Lorem Ipsom Dolor"/>
@@ -42,10 +32,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/subreddit_name"
-            android:layout_toRightOf="@id/subreddit_banner_image"
             style="@style/card_text_secondary"
             android:paddingTop="0dp"
-            android:layout_alignBaseline="@id/subreddit_banner_image"
             android:lines="1"
             android:ellipsize="end"
             android:text="Lorem Ipsom Dolor"/>

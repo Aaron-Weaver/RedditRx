@@ -3,7 +3,7 @@ package com.appweava.redditrx.domain;
 import android.support.annotation.NonNull;
 
 import com.appweava.redditrx.Subreddit;
-import com.appweava.redditrx.domain.entities.SubredditDomain;
+import com.appweava.redditrx.domain.entities.SubredditModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,12 +11,12 @@ import java.util.List;
 /**
  * Created by weava on 4/7/16.
  */
-public class SubredditConverter implements Converter<Subreddit, SubredditDomain> {
+public class SubredditConverter implements Converter<Subreddit, SubredditModel> {
 
     @Override
-    public SubredditDomain convert(@NonNull Subreddit itemToConvert) {
+    public SubredditModel convert(@NonNull Subreddit itemToConvert) {
         if (itemToConvert != null) {
-            SubredditDomain convertSubreddit = new SubredditDomain();
+            SubredditModel convertSubreddit = new SubredditModel();
 
             convertSubreddit.setBannerImageUrl(itemToConvert.getBannerImg());
             convertSubreddit.setId(itemToConvert.getId());
@@ -42,10 +42,10 @@ public class SubredditConverter implements Converter<Subreddit, SubredditDomain>
     }
 
     @Override
-    public List<SubredditDomain> convert(@NonNull List<Subreddit> itemsToConvert) {
+    public List<SubredditModel> convert(@NonNull List<Subreddit> itemsToConvert) {
 
         if(!itemsToConvert.isEmpty()) {
-            List<SubredditDomain> subredditDomainList = new ArrayList<>();
+            List<SubredditModel> subredditDomainList = new ArrayList<>();
 
             for(Subreddit item : itemsToConvert) {
                 subredditDomainList.add(convert(item));

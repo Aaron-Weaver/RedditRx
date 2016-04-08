@@ -4,19 +4,22 @@ import android.content.Context;
 import android.view.View;
 
 import com.appweava.redditrx.R;
-import com.appweava.redditrx.domain.entities.SubredditDomain;
+import com.appweava.redditrx.domain.entities.SubredditModel;
+import com.appweava.redditrx.presentation.ItemCallback;
 import com.appweava.redditrx.presentation.viewHolders.BaseViewHolder;
 import com.appweava.redditrx.presentation.viewHolders.SubredditViewHolder;
 
 /**
  * Created by weava on 4/7/16.
  */
-public class SubredditAdapter extends BaseRecyclerAdapter<SubredditDomain> {
+public class SubredditListAdapter extends BaseRecyclerAdapter<SubredditModel> {
 
     private Context mContext;
+    private ItemCallback<SubredditModel> mCallback;
 
-    public SubredditAdapter(Context context) {
+    public SubredditListAdapter(Context context, ItemCallback<SubredditModel> callback) {
         mContext = context;
+        mCallback = callback;
     }
 
     @Override
@@ -25,7 +28,7 @@ public class SubredditAdapter extends BaseRecyclerAdapter<SubredditDomain> {
     }
 
     @Override
-    public BaseViewHolder<SubredditDomain> inflateViewHolder(View view) {
-        return new SubredditViewHolder(view, mContext);
+    public BaseViewHolder<SubredditModel> inflateViewHolder(View view) {
+        return new SubredditViewHolder(view, mContext, mCallback);
     }
 }

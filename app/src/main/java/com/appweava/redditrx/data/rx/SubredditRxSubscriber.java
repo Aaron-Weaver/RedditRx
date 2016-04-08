@@ -5,7 +5,7 @@ import com.appweava.redditrx.data.entities.Children;
 import com.appweava.redditrx.data.entities.SubredditResult;
 import com.appweava.redditrx.domain.Converter;
 import com.appweava.redditrx.domain.SubredditConverter;
-import com.appweava.redditrx.domain.entities.SubredditDomain;
+import com.appweava.redditrx.domain.entities.SubredditModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,9 +13,9 @@ import java.util.List;
 /**
  * Created by weava on 3/22/16.
  */
-public class SubredditRxSubscriber extends ConverterRxSubscriber<SubredditResult, List<SubredditDomain>> {
+public class SubredditRxSubscriber extends ConverterRxSubscriber<SubredditResult, List<SubredditModel>> {
 
-    public SubredditRxSubscriber(RxCallback<List<SubredditDomain>> callback) {
+    public SubredditRxSubscriber(RxCallback<List<SubredditModel>> callback) {
         super(callback);
     }
 

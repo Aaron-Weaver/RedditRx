@@ -3,7 +3,7 @@ package com.appweava.redditrx.domain.entities;
 /**
  * Created by weava on 4/7/16.
  */
-public class SubredditDomain {
+public class SubredditModel {
 
     private String mBannerImageUrl;
     private String mId;
